@@ -40,9 +40,8 @@ interface Certification {
 
 interface VolunteerWork {
   name: string;
-
   startDate: string;
-  description: string;
+  description?: string;
   endDate?: string;
 }
 
