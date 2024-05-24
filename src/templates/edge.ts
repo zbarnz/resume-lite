@@ -1,5 +1,14 @@
 import { ResumeData } from '../resumeTypes';
 
+/**
+ * Generates an HTML string for a complete resume for the "Edge" template
+ * using provided resume data. The Edge template presents important sections
+ * in a main vericle layout and sections less important sections to a side
+ * layout
+ *
+ * @param {ResumeData} resumeData - The resume data containing personal information, skills, work experience, and projects.
+ * @returns {string} The generated HTML string representing the resume.
+ */
 export function edge(resumeData: ResumeData): string {
     return `
     <!DOCTYPE html>
@@ -9,7 +18,57 @@ export function edge(resumeData: ResumeData): string {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>${resumeData.personalInfo.name}'s Resume</title>
             <style>
-                body {
+                ${stylesCSS()}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <div class="name-links">
+                        <h1 id="name">${resumeData.personalInfo.name}</h1>
+                    </div>
+                    <div class="contact-info">
+                        <div id="email">${resumeData.personalInfo.email}</div>
+                        ${resumeData.personalInfo.phone ? `<div id="phone">${resumeData.personalInfo.phone}</div>` : ''}
+                        ${resumeData.personalInfo.address ? `<div id="address">${resumeData.personalInfo.address}</div>` : ''}
+                    </div>
+                </div>
+
+                <div class="personal-info">
+                    <p class="summary">${resumeData.personalInfo.summary ?? ''}</p>
+                    <div class="links">
+                        <h3>Links</h3>
+                        <ul id="links">
+                            ${resumeData.personalInfo.links?.map((link) => `<li><a href="${link.url}">${link.name}</a></li>`).join('') ?? ''}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="details">
+                    <div class="main-details">
+                        ${experienceHTML(resumeData)}
+
+                        ${projectsHTML(resumeData)}
+
+                        ${educationHTML(resumeData)}
+                    </div>
+
+                    <div class="side-details">
+                        ${certificationsHTML(resumeData)}
+
+                        ${volunteerHTML(resumeData)}
+
+                        ${languagesHTML(resumeData)}
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+    `;
+}
+
+function stylesCSS() {
+    return `                body {
                     font-family: 'Roboto', sans-serif;
                     margin: 0;
                     padding: 0;
@@ -121,41 +180,18 @@ export function edge(resumeData: ResumeData): string {
                 }
                 .language {
                     padding: 5px 10px !important;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <div class="header">
-                    <div class="name-links">
-                        <h1 id="name">${resumeData.personalInfo.name}</h1>
-                    </div>
-                    <div class="contact-info">
-                        <div id="email">${resumeData.personalInfo.email}</div>
-                        ${resumeData.personalInfo.phone ? `<div id="phone">${resumeData.personalInfo.phone}</div>` : ''}
-                        ${resumeData.personalInfo.address ? `<div id="address">${resumeData.personalInfo.address}</div>` : ''}
-                    </div>
-                </div>
+                }`;
+}
 
-                <div class="personal-info">
-                    <p class="summary">${resumeData.personalInfo.summary ?? ''}</p>
-                    <div class="links">
-                        <h3>Links</h3>
-                        <ul id="links">
-                            ${resumeData.personalInfo.links?.map((link) => `<li><a href="${link.url}">${link.name}</a></li>`).join('') ?? ''}
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="details">
-                    <div class="main-details">
-                        <div class="experience section">
-                            <h2>Work Experience</h2>
-                            <div id="workExperience">
-                                ${
-                                    resumeData.workExperience
-                                        ?.map(
-                                            (job) => `
+function experienceHTML(resumeData: ResumeData) {
+    return `
+        <div class="experience section">
+            <h2>Work Experience</h2>
+            <div id="workExperience">
+                ${
+                    resumeData.workExperience
+                        ?.map(
+                            (job) => `
                                 <div class="job">
                                     <h3>${job.company}</h3>
                                     <p><strong>Position:</strong> ${job.position}</p>
@@ -165,19 +201,23 @@ export function edge(resumeData: ResumeData): string {
                                     </ul>
                                 </div>
                                 `
-                                        )
-                                        .join('') ?? ''
-                                }
-                            </div>
-                        </div>
+                        )
+                        .join('') ?? ''
+                }
+            </div>
+        </div>
+    `;
+}
 
-                        <div class="projects section">
-                            <h2>Projects</h2>
-                            <div id="projects">
-                                ${
-                                    resumeData.projects
-                                        ?.map(
-                                            (project) => `
+function projectsHTML(resumeData: ResumeData) {
+    return `
+        <div class="projects section">
+            <h2>Projects</h2>
+            <div id="projects">
+                ${
+                    resumeData.projects
+                        ?.map(
+                            (project) => `
                                 <div class="project">
                                     <h3>${project.title}</h3>
                                     <p>${project.description}</p>
@@ -188,13 +228,16 @@ export function edge(resumeData: ResumeData): string {
                                     ${project.sourceCodeLink ? `<p><a href="${project.sourceCodeLink}">Source Code</a></p>` : ''}
                                 </div>
                                 `
-                                        )
-                                        .join('') ?? ''
-                                }
-                            </div>
-                        </div>
+                        )
+                        .join('') ?? ''
+                }
+            </div>
+        </div>
+    `;
+}
 
-                        <div class="education section">
+function educationHTML(resumeData: ResumeData) {
+    return `<div class="education section">
                             <h2>Education</h2>
                             <div id="education">
                                 ${
@@ -211,67 +254,71 @@ export function edge(resumeData: ResumeData): string {
                                         .join('') ?? ''
                                 }
                             </div>
-                        </div>
-                    </div>
+                        </div>`;
+}
 
-                    <div class="side-details">
-                        <div class="certifications section">
-                            <h2>Certifications</h2>
-                            <div id="certifications">
-                                ${
-                                    resumeData.certifications
-                                        ?.map(
-                                            (certification) => `
+function certificationsHTML(resumeData: ResumeData) {
+    return `
+        <div class="certifications section">
+            <h2>Certifications</h2>
+            <div id="certifications">
+                ${
+                    resumeData.certifications
+                        ?.map(
+                            (certification) => `
                                 <div class="certification">
                                     <h3>${certification.name}</h3>
                                     <p>Date Acquired: ${certification.dateAquired}</p>
                                 </div>
                                 `
-                                        )
-                                        .join('') ?? ''
-                                }
-                            </div>
-                        </div>
+                        )
+                        .join('') ?? ''
+                }
+            </div>
+        </div>
+    `;
+}
 
-                        <div class="volunteer section">
-                            <h2>Volunteer Work</h2>
-                            <div id="volunteerWork">
-                                ${
-                                    resumeData.volunteerWork
-                                        ?.map(
-                                            (volunteer) => `
+function volunteerHTML(resumeData: ResumeData) {
+    return `
+        <div class="volunteer section">
+            <h2>Volunteer Work</h2>
+            <div id="volunteerWork">
+                ${
+                    resumeData.volunteerWork
+                        ?.map(
+                            (volunteer) => `
                                 <div class="volunteer-work">
                                     <h3>${volunteer.name}</h3>
                                     <p><strong>Dates:</strong> ${volunteer.startDate} - ${volunteer.endDate ?? 'Present'}</p>
                                     <p>${volunteer.description ?? ''}</p>
                                 </div>
                                 `
-                                        )
-                                        .join('') ?? ''
-                                }
-                            </div>
-                        </div>
+                        )
+                        .join('') ?? ''
+                }
+            </div>
+        </div>
+    `;
+}
 
-                        <div class="languages section">
-                            <h2>Languages</h2>
-                            <div id="languages">
-                                ${
-                                    resumeData.languages
-                                        ?.map(
-                                            (language) => `
+function languagesHTML(resumeData: ResumeData) {
+    return `
+        <div class="languages section">
+            <h2>Languages</h2>
+            <div id="languages">
+                ${
+                    resumeData.languages
+                        ?.map(
+                            (language) => `
                                 <div class="language">
                                     <p><strong>${language.name}:</strong> ${language.proficiency}</p>
                                 </div>
                                 `
-                                        )
-                                        .join('') ?? ''
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        )
+                        .join('') ?? ''
+                }
             </div>
-        </body>
-    </html>
+        </div>
     `;
 }
