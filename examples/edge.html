@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Jane Smith's Resume</title>
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f2f5;
+                color: #333;
+            }
+            .container {
+                padding: 30px;
+                background-color: #fff;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 2px solid #4a90e2;
+                padding-bottom: 15px;
+                margin-bottom: 30px;
+            }
+            .header h1 {
+                font-size: 2.5em;
+                color: #4a90e2;
+            }
+            .header .contact-info {
+                text-align: right;
+            }
+            .header .contact-info div {
+                margin-bottom: 5px;
+            }
+            .section {
+                margin-bottom: 5px;
+            }
+            .section h2 {
+                font-size: 1.8em;
+                color: #4a90e2;
+                margin-bottom: 15px;
+                border-bottom: 2px solid #4a90e2;
+                display: inline-block;
+                padding-bottom: 5px;
+            }
+            .section h3 {
+                font-size: 1.5em;
+                color: #333;
+                margin-bottom: 10px;
+                margin-top: 5px;
+            }
+            .section p {
+                margin-bottom: 10px;
+                line-height: 1.6;
+            }
+            .section ul {
+                padding-left: 20px;
+                list-style: disc;
+            }
+            .section ul li {
+                margin-bottom: 10px;
+            }
+            .personal-info {
+                display: flex;
+                flex-direction: row;
+            }
+            .summary {
+                width: 68%;
+            }
+            .links {
+                margin-left: 10px;
+                flex-grow: 1;
+                padding: 5px;
+                border: #4a90e2 2px dotted;
+            }
+            .links ul {
+                margin: 5px 0;
+            }
+            .links h3 {
+                margin: 0;
+            }
+            .links a {
+                color: #4a90e2;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            .details {
+                display: flex;
+            }
+            .main-details {
+                flex: 0 0 68%;
+                width: 68%;
+            }
+            .side-details {
+                margin-left: 20px;
+                flex: 1;
+            }
+            .side-details .section div {
+                font-size: small;
+            }
+            .projects .project,
+            .experience .job,
+            .education .school,
+            .certifications .certification,
+            .volunteer .volunteer-work,
+            .languages .language {
+                padding: 20px;
+                background-color: #eff4fd;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                margin-bottom: 10px;
+            }
+            .language {
+                padding: 5px 10px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="name-links">
+                    <h1 id="name">Jane Smith</h1>
+                </div>
+                <div class="contact-info">
+                    <div id="email">jane.smith@example.com</div>
+                    <div id="phone">555-123-4567</div>
+                    <div id="address">456 Elm Street, Metropolis, USA</div>
+                </div>
+            </div>
+
+            <div class="personal-info">
+                <p class="summary">
+                    Seasoned software engineer with over 10 years of experience in full-stack
+                    development, project management, and team leadership. Proven track record of
+                    delivering high-quality software solutions on time and within budget.
+                </p>
+                <div class="links">
+                    <h3>Links</h3>
+                    <ul id="links">
+                        <li><a href="https://linkedin.com/in/janesmith">LinkedIn</a></li>
+                        <li><a href="https://github.com/janesmith">GitHub</a></li>
+                        <li><a href="https://janesmith.dev">Portfolio</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="main-details">
+                    <div class="experience section">
+                        <h2>Work Experience</h2>
+                        <div id="workExperience">
+                            <div class="job">
+                                <h3>Global Tech Solutions</h3>
+                                <p>
+                                    <strong>Position:</strong>
+                                    Lead Software Engineer
+                                </p>
+                                <p>
+                                    <strong>Dates:</strong>
+                                    April 2018 - Present
+                                </p>
+                                <ul>
+                                    <li>
+                                        Leading a team of 10 developers in designing, developing,
+                                        and maintaining enterprise-level software applications.
+                                    </li>
+                                    <li>
+                                        Implementing agile methodologies to improve project delivery
+                                        times and team productivity.
+                                    </li>
+                                    <li>
+                                        Collaborating with stakeholders to define project
+                                        requirements and deliverables.
+                                    </li>
+                                    <li>
+                                        Mentoring junior developers and conducting code reviews to
+                                        ensure coding standards and best practices.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="job">
+                                <h3>Innovative Apps LLC</h3>
+                                <p>
+                                    <strong>Position:</strong>
+                                    Senior Software Engineer
+                                </p>
+                                <p>
+                                    <strong>Dates:</strong>
+                                    May 2014 - March 2018
+                                </p>
+                                <ul>
+                                    <li>
+                                        Developed and maintained mobile applications using React
+                                        Native and Flutter.
+                                    </li>
+                                    <li>Implemented RESTful APIs with Node.js and Express.</li>
+                                    <li>
+                                        Worked closely with UX/UI designers to create intuitive and
+                                        user-friendly interfaces.
+                                    </li>
+                                    <li>
+                                        Optimized application performance and resolved complex
+                                        technical issues.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="job">
+                                <h3>Tech Innovators Inc.</h3>
+                                <p>
+                                    <strong>Position:</strong>
+                                    Software Engineer
+                                </p>
+                                <p>
+                                    <strong>Dates:</strong>
+                                    September 2010 - May 2014
+                                </p>
+                                <ul>
+                                    <li>
+                                        Developed web applications using JavaScript, HTML, and CSS.
+                                    </li>
+                                    <li>
+                                        Integrated third-party APIs to enhance application
+                                        functionality.
+                                    </li>
+                                    <li>
+                                        Collaborated with cross-functional teams to ensure seamless
+                                        integration of new features.
+                                    </li>
+                                    <li>
+                                        Participated in code reviews and contributed to the
+                                        development of coding standards.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projects section">
+                        <h2>Projects</h2>
+                        <div id="projects">
+                            <div class="project">
+                                <h3>E-commerce Platform</h3>
+                                <p>
+                                    Developed a scalable e-commerce platform for small businesses.
+                                </p>
+                                <ul>
+                                    <li>Led the front-end development using React and Redux.</li>
+                                    <li>Implemented the back-end API with Node.js and Express.</li>
+                                    <li>Designed and managed the database schema using MongoDB.</li>
+                                    <li>
+                                        Deployed the application on AWS using Docker and Kubernetes.
+                                    </li>
+                                </ul>
+                                <p><a href="https://ecommerceplatform.com">Website</a></p>
+                                <p>
+                                    <a href="https://github.com/janesmith/ecommerce-platform">
+                                        Source Code
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div class="project">
+                                <h3>Project Management Tool</h3>
+                                <p>
+                                    Created a project management tool to improve team collaboration.
+                                </p>
+                                <ul>
+                                    <li>
+                                        Designed the user interface with Angular and Material
+                                        Design.
+                                    </li>
+                                    <li>
+                                        Developed the server-side logic with Spring Boot and Java.
+                                    </li>
+                                    <li>
+                                        Integrated real-time collaboration features using
+                                        WebSockets.
+                                    </li>
+                                    <li>
+                                        Implemented user authentication and authorization with
+                                        OAuth2.
+                                    </li>
+                                </ul>
+                                <p><a href="https://projectmanagementtool.com">Website</a></p>
+                                <p>
+                                    <a href="https://github.com/janesmith/project-management-tool">
+                                        Source Code
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education section">
+                        <h2>Education</h2>
+                        <div id="education">
+                            <div class="school">
+                                <h3>Metropolis University</h3>
+                                <p>
+                                    <strong>Degree:</strong>
+                                    Master of Science in Computer Science
+                                </p>
+                                <p>
+                                    <strong>Dates:</strong>
+                                    - 2010-06-30
+                                </p>
+                            </div>
+
+                            <div class="school">
+                                <h3>Metropolis University</h3>
+                                <p>
+                                    <strong>Degree:</strong>
+                                    Bachelor of Science in Computer Science
+                                </p>
+                                <p>
+                                    <strong>Dates:</strong>
+                                    2004-09-01 - 2008-06-30
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-details">
+                    <div class="certifications section">
+                        <h2>Certifications</h2>
+                        <div id="certifications">
+                            <div class="certification">
+                                <h3>Certified Scrum Master</h3>
+                                <p>Date Acquired: 2016-05-01</p>
+                            </div>
+
+                            <div class="certification">
+                                <h3>AWS Certified Solutions Architect</h3>
+                                <p>Date Acquired: 2017-11-01</p>
+                            </div>
+
+                            <div class="certification">
+                                <h3>Google Cloud Professional Data Engineer</h3>
+                                <p>Date Acquired: 2018-08-01</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="volunteer section">
+                        <h2>Volunteer Work</h2>
+                        <div id="volunteerWork">
+                            <div class="volunteer-work">
+                                <h3>Code for Good</h3>
+                                <p>
+                                    <strong>Dates:</strong>
+                                    2019-01-01 - 2020-12-31
+                                </p>
+                                <p>Taught coding workshops to underprivileged youth.</p>
+                            </div>
+
+                            <div class="volunteer-work">
+                                <h3>Open Source Contributor</h3>
+                                <p>
+                                    <strong>Dates:</strong>
+                                    2016-01-01 - Present
+                                </p>
+                                <p>
+                                    Contributed to various open-source projects, focusing on bug
+                                    fixes and feature enhancements.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="languages section">
+                        <h2>Languages</h2>
+                        <div id="languages">
+                            <div class="language">
+                                <p>
+                                    <strong>English:</strong>
+                                    Native
+                                </p>
+                            </div>
+
+                            <div class="language">
+                                <p>
+                                    <strong>Spanish:</strong>
+                                    Fluent
+                                </p>
+                            </div>
+
+                            <div class="language">
+                                <p>
+                                    <strong>German:</strong>
+                                    Intermediate
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

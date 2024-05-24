@@ -1,4 +1,4 @@
-import { ResumeData } from '../src/resumeTypes.ts';
+import { ResumeData } from '../src/resumeTypes';
 
 export const testData: ResumeData = {
     personalInfo: {
