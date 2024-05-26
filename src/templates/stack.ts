@@ -10,23 +10,25 @@ import { ResumeData } from '../resumeTypes';
  */
 export function stack(resumeData: ResumeData): string {
     return `
-    <!doctype html>
-    <html>
-      <head>
-        <title>${resumeData.personalInfo.name}</title>
-      </head>
-      <body style="margin: 0 2em; line-height: 1.6; font-size: small;">
-        ${headerHTML(resumeData)}
-        ${resumeData.skills?.length ? skillsHtml(resumeData) : ''}
-        ${resumeData.workExperience?.length ? workExperienceHTML(resumeData) : ''}
-        ${resumeData.projects?.length ? projectsHTML(resumeData) : ''}
-        ${resumeData.education?.length ? educationHTML(resumeData) : ''}
-        ${resumeData.certifications?.length ? certificationsHTML(resumeData) : ''}
-        ${resumeData.languages?.length ? languagesHTML(resumeData) : ''}
-        ${resumeData.volunteerWork?.length ? volunteerWorkHTML(resumeData) : ''}
-      </body>
-    </html>
-  `;
+        <!doctype html>
+        <html>
+            <head>
+                <title>${resumeData.personalInfo.name}</title>
+            </head>
+            <body style="margin: 0; line-height: 1.6; font-size: small;">
+                <div id="container" style="padding: 20px 10px; overflow: hidden">
+                    ${headerHTML(resumeData)}
+                    ${resumeData.skills?.length ? skillsHtml(resumeData) : ''}
+                    ${resumeData.workExperience?.length ? workExperienceHTML(resumeData) : ''}
+                    ${resumeData.projects?.length ? projectsHTML(resumeData) : ''}
+                    ${resumeData.education?.length ? educationHTML(resumeData) : ''}
+                    ${resumeData.certifications?.length ? certificationsHTML(resumeData) : ''}
+                    ${resumeData.languages?.length ? languagesHTML(resumeData) : ''}
+                    ${resumeData.volunteerWork?.length ? volunteerWorkHTML(resumeData) : ''}
+                </div>
+            </body>
+        </html>
+    `;
 }
 
 function headerHTML(resumeData: ResumeData): string {

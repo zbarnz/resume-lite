@@ -43,7 +43,14 @@ async function testEdge() {
                 }
             }, pageElement);
 
-            pagesBuffer.push(await page.pdf({ width, height, printBackground: true, timeout: 0 }));
+            pagesBuffer.push(
+                await page.pdf({
+                    width,
+                    height,
+                    printBackground: true,
+                    timeout: 0,
+                })
+            );
 
             await page.evaluate((temporaryHtml_: string) => {
                 document.body.innerHTML = temporaryHtml_;
@@ -68,7 +75,12 @@ async function testEdge() {
         // Store the URL in cache for future requests, under the previously generated hash digest
         const buffer = Buffer.from(await pdf.save());
 
-        fs.writeFileSync('edge_test.pdf', buffer);
+        const outputDir = 'test_output';
+        if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+        }
+
+        fs.writeFileSync(`${outputDir}/stack_test.pdf`, buffer);
 
         // Close all the pages and disconnect from the browser
         await page.close();

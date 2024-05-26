@@ -10,6 +10,8 @@ import fs from 'fs';
 async function testStack() {
     const html = generate('stack', testData);
 
+    console.log(html);
+
     try {
         const browser = await puppeteer.launch({
             headless: false,
@@ -25,7 +27,7 @@ async function testStack() {
         const pagesBuffer: Buffer[] = [];
 
         const processPage = async (index: number) => {
-            const pageElement = await page.$(`.container`);
+            const pageElement = await page.$(`#container`);
             // eslint-disable-next-line unicorn/no-await-expression-member
             const width = (await (await pageElement?.getProperty('scrollWidth'))?.jsonValue()) ?? 0;
             // eslint-disable-next-line unicorn/no-await-expression-member
@@ -43,7 +45,14 @@ async function testStack() {
                 }
             }, pageElement);
 
-            pagesBuffer.push(await page.pdf({ width, height, printBackground: true, timeout: 0 }));
+            pagesBuffer.push(
+                await page.pdf({
+                    width,
+                    height,
+                    printBackground: true,
+                    timeout: 0,
+                })
+            );
 
             await page.evaluate((temporaryHtml_: string) => {
                 document.body.innerHTML = temporaryHtml_;
@@ -68,7 +77,7 @@ async function testStack() {
         // Store the URL in cache for future requests, under the previously generated hash digest
         const buffer = Buffer.from(await pdf.save());
 
-        fs.writeFileSync('stack_test.pdf', buffer);
+        fs.writeFileSync('test_output/stack_test.pdf', buffer);
 
         // Close all the pages and disconnect from the browser
         await page.close();

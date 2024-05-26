@@ -81,7 +81,7 @@ function stylesCSS() {
             color: #333;
         }
         .container {
-            padding: 0 30px;
+            padding: 20px 30px;
             background-color: #fff;
             overflow: hidden;
         }
