@@ -1,7 +1,6 @@
 import { generate } from '../src/index';
 import { testData } from './testData';
 
-import { chromium } from 'playwright';
 import { PDFDocument } from 'pdf-lib';
 import puppeteer from 'puppeteer';
 import fs from 'fs';
@@ -14,6 +13,7 @@ async function testStack() {
     try {
         const browser = await puppeteer.launch({
             headless: false,
+            args: ['--no-sandbox'],
         });
         const page = await browser.newPage();
 
