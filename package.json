@@ -38,8 +38,10 @@
     },
     "homepage": "https://github.com/zbarnz/resume-lite#readme",
     "devDependencies": {
+        "@types/node": "^20.12.12",
         "jsdoc": "^4.0.3",
-        "playwright": "^1.44.1",
-        "prettier": "^3.2.5"
+        "pdf-lib": "^1.17.1",
+        "prettier": "^3.2.5",
+        "puppeteer": "^22.10.0"
     }
 }
