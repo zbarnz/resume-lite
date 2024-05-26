@@ -90,8 +90,7 @@ function stylesCSS() {
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #4a90e2;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         .header h1 {
             font-size: 2.5em;
