@@ -17,8 +17,9 @@
     <th>Edge</th>
   </tr>
   <tr>
-    <td><img src="" width="200px" /></td>
-    <td><img src="" width="200px" /></td>
+    <td><img src="https://i.imgur.com/Fx56vR4.jpg" width="200px" /></td>
+    <td><img src="https://i.imgur.com/V6g8VEA.jpg" width="200px"  /></td>
+    </td>
   </tr>
 </table>
 
@@ -212,5 +213,4 @@ function testStack() {
 }
 
 testStack();
-
 ```

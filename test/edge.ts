@@ -80,7 +80,7 @@ async function testEdge() {
             fs.mkdirSync(outputDir, { recursive: true });
         }
 
-        fs.writeFileSync(`${outputDir}/stack_test.pdf`, buffer);
+        fs.writeFileSync(`${outputDir}/edge_test.pdf`, buffer);
 
         // Close all the pages and disconnect from the browser
         await page.close();
