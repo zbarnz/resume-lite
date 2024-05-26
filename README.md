@@ -17,8 +17,8 @@
     <th>Edge</th>
   </tr>
   <tr>
-    <td><img src="https://i.imgur.com/jKgo04C.jpeg" width="200px" /></td>
-    <td><img src="https://i.imgur.com/DFNQZP2.jpg" width="200px" /></td>
+    <td><img src="" width="200px" /></td>
+    <td><img src="" width="200px" /></td>
   </tr>
 </table>
 
