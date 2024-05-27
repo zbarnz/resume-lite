@@ -5,12 +5,12 @@ import { stack } from './templates/stack';
 import { edge } from './templates/edge';
 
 // Define an enumeration or constant for available templates
-export const AvailableTemplates = {
+const AvailableTemplates = {
     STACK: 'stack',
     EDGE: 'edge',
 } as const;
 
-type TemplateName = (typeof AvailableTemplates)[keyof typeof AvailableTemplates];
+export type TemplateName = (typeof AvailableTemplates)[keyof typeof AvailableTemplates];
 type TemplateFunction = (resumeData: ResumeData) => string;
 
 // Map template names to their respective functions

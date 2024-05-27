@@ -16,7 +16,7 @@ export function stack(resumeData: ResumeData): string {
                 <title>${resumeData.personalInfo.name}</title>
             </head>
             <body style="margin: 0; line-height: 1.6; font-size: small;">
-                <div id="container" style="padding: 20px 10px; overflow: hidden">
+                <div id="templateContainer" style="padding: 20px 10px; overflow: hidden">
                     ${headerHTML(resumeData)}
                     ${resumeData.skills?.length ? skillsHtml(resumeData) : ''}
                     ${resumeData.workExperience?.length ? workExperienceHTML(resumeData) : ''}

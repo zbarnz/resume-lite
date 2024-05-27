@@ -22,7 +22,7 @@ export function edge(resumeData: ResumeData): string {
             </style>
         </head>
         <body>
-            <div class="container">
+            <div id="templateContainer" class="container">
                 <div class="header">
                     <div class="name-links">
                         <h1 id="name">${resumeData.personalInfo.name}</h1>

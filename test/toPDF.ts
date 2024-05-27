@@ -1,0 +1,94 @@
+import { generate } from '../src/index';
+
+import { PDFDocument } from 'pdf-lib';
+import puppeteer from 'puppeteer';
+import fs from 'fs';
+
+import { TemplateName } from '../src/index';
+import { ResumeData } from '../src/resumeTypes';
+
+//TODO implement proper tests
+
+export async function toPDF(template: TemplateName, testData: ResumeData, pages?: number) {
+    //test generate call
+    const html = generate(template, testData);
+
+    try {
+        const browser = await puppeteer.launch({
+            headless: false,
+            args: ['--no-sandbox'],
+        });
+        const page = await browser.newPage();
+
+        // Set the data of the resume to be printed in the browser's session storage
+        const numberPages = pages || 1;
+
+        await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: 0 });
+
+        const pagesBuffer: Buffer[] = [];
+
+        const processPage = async (index: number) => {
+            const pageElement = await page.$(`#templateContainer`);
+            // eslint-disable-next-line unicorn/no-await-expression-member
+            const width = (await (await pageElement?.getProperty('scrollWidth'))?.jsonValue()) ?? 0;
+            // eslint-disable-next-line unicorn/no-await-expression-member
+            const height =
+                (await (await pageElement?.getProperty('scrollHeight'))?.jsonValue()) ?? 0;
+
+            const temporaryHtml = await page.evaluate((element) => {
+                if (element) {
+                    const clonedElement = element.cloneNode(true) as HTMLDivElement;
+                    const temporaryHtml_ = document.body.innerHTML;
+                    document.body.innerHTML = clonedElement.outerHTML;
+                    return temporaryHtml_;
+                } else {
+                    throw new Error('cant find container class');
+                }
+            }, pageElement);
+
+            pagesBuffer.push(
+                await page.pdf({
+                    width,
+                    height,
+                    printBackground: true,
+                    timeout: 0,
+                })
+            );
+
+            await page.evaluate((temporaryHtml_: string) => {
+                document.body.innerHTML = temporaryHtml_;
+            }, temporaryHtml);
+        };
+
+        // Loop through all the pages and print them, by first displaying them, printing the PDF and then hiding them back
+        for (let index = 1; index <= numberPages; index++) {
+            await processPage(index);
+        }
+
+        // Using 'pdf-lib', merge all the pages from their buffers into a single PDF
+        const pdf = await PDFDocument.create();
+
+        for (const element of pagesBuffer) {
+            const page = await PDFDocument.load(element);
+            const [copiedPage] = await pdf.copyPages(page, [0]);
+            pdf.addPage(copiedPage);
+        }
+
+        // Save the PDF to storage and return the URL to download the resume
+        // Store the URL in cache for future requests, under the previously generated hash digest
+        const buffer = Buffer.from(await pdf.save());
+
+        const outputDir = 'test_output';
+        if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+        }
+
+        fs.writeFileSync(`${outputDir}/${template}_test.pdf`, buffer);
+
+        // Close all the pages and disconnect from the browser
+        await page.close();
+        await browser.close();
+    } catch (error) {
+        throw new Error(error as any);
+    }
+}
