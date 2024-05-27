@@ -11,7 +11,7 @@ const AvailableTemplates = {
 } as const;
 
 export type TemplateName = (typeof AvailableTemplates)[keyof typeof AvailableTemplates];
-type TemplateFunction = (resumeData: ResumeData) => string;
+export type TemplateFunction = (resumeData: ResumeData) => string;
 
 // Map template names to their respective functions
 const templateFunctions: Record<TemplateName, TemplateFunction> = {
@@ -36,7 +36,7 @@ export function generate(templateName: TemplateName, resumeData: ResumeData): st
     const templateFunction = templateFunctions[templateName];
     if (!templateFunction) {
         throw new Error(
-            `Template ${templateName} is not available. View docs or run getAvailableTemplates()`
+            `Template ${templateName} is not available. Available templates: ${Object.values(AvailableTemplates).join(', ')}`
         );
     }
     return templateFunction(resumeData);
