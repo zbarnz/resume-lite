@@ -18,7 +18,7 @@
   </tr>
   <tr>
     <td><img src="https://i.imgur.com/Fx56vR4.jpg" width="200px" /></td>
-    <td><img src="https://i.imgur.com/y7ZwCBm.jpeg" width="200px"  /></td>
+    <td><img src="https://i.imgur.com/gmkQ3lC.jpeg" width="200px"  /></td>
     </td>
   </tr>
 </table>
