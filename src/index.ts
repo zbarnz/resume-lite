@@ -41,3 +41,7 @@ export function generate(templateName: TemplateName, resumeData: ResumeData): st
     }
     return templateFunction(resumeData);
 }
+
+export default {
+    generate
+};

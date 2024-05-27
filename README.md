@@ -1,6 +1,6 @@
 # Resume-Lite
 
-**Resume-Lite** is a lightweight library for generating resumes in HTML format. It aims to be as lightweight as possible with 0 dependencies. This library takes structured data as input and produces a clean, professional resume in HTML format.
+**Resume-Lite** is a lightweight library designed for generating resumes in HTML format. With zero dependencies, it ensures minimal overhead and maximum simplicity. By taking structured data as input, this library produces clean and professional resumes in HTML, making it an ideal tool for developers looking to create customizable resume templates with ease.
 
 ## Features
 
@@ -10,7 +10,7 @@
 -   **Structured Data**: Uses a clear schema for input data.
 
 ## Templates
-
+*We are currently working on adding more templates*
 <table>
   <tr>
     <th>Stack</th>
@@ -22,14 +22,6 @@
     </td>
   </tr>
 </table>
-
-## Installation
-
-Since Resume-Lite has no dependencies, you can simply download the `resume-lite.js` file and include it in your project.
-
-```html
-<script src="path/to/resume-lite.js"></script>
-```
 
 ## Usage
 
@@ -204,13 +196,47 @@ npm i resume-lite
 ### Implementation
 
 ```javascript
-import { generate } from 'resume-lite';
+import resume from 'resume-lite';
 import { sampleData } from './sampleData';
 
-function testStack() {
-    const html = generate(stack, sampleData);
+function generateNewResume() {
+    const html = resume.generate(stack, sampleData);
     console.log(html);
 }
 
-testStack();
+generateNewResume();
+```
+
+### Conversion to PDF Example
+
+We recommend using puppeteer for HTML to PDF conversion
+
+```javascript
+import resume from 'resume-lite';
+import puppeteer from 'puppeteer';
+
+const html = resume.generate(template, testData);
+
+//Launch new puppeteer page
+const browser = await puppeteer.launch();
+const page = await browser.newPage();
+
+//Set page content to generated resume HTML
+await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: 0 });
+
+//Get resume height
+const height = await page.evaluate(() => document.documentElement.scrollHeight);
+
+//Puppeteer built in PDF generator
+const pdfBuffer = await page.pdf({
+    width: '8.27in',   // A4 width in inches
+    height,
+    printBackground: true,
+});
+
+//Write file locally
+fs.writeFileSync(`resume.pdf`, buffer);
+
+await page.close();
+await browser.close();
 ```
