@@ -1,6 +1,6 @@
 {
     "name": "resume-lite",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Generate professional resumes effortlessly using resume.js. Input your information, and our tool will create polished and customizable resumes in various formats. Perfect for developers, designers, and any job seekers looking to showcase their skills and experiences in the best possible light. Simple API, intuitive to use, and ensures your resume stands out to potential employers.",
     "main": "dist/index.js",
     "scripts": {
@@ -43,5 +43,9 @@
         "pdf-lib": "^1.17.1",
         "prettier": "^3.2.5",
         "puppeteer": "^22.10.0"
-    }
+    },
+    "files": [
+        "dist/**/*",
+        "README.md"
+    ]
 }
