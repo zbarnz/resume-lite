@@ -1,11 +1,9 @@
-import { PDFDocument } from 'pdf-lib';
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 
-import resume from 'resume-lite';
+import resume, { ResumeData } from 'resume-lite';
 
 import { TemplateName } from '../src/index';
-import { ResumeData } from '../src/resumeTypes';
 
 //TODO implement proper tests
 
