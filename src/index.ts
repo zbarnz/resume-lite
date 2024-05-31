@@ -5,7 +5,7 @@ import { stack } from './templates/stack';
 import { edge } from './templates/edge';
 
 // Define an enumeration or constant for available templates
-const AvailableTemplates = {
+export const AvailableTemplates = {
     STACK: 'stack',
     EDGE: 'edge',
 } as const;
