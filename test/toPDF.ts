@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 
-import resume, { ResumeData } from 'resume-lite';
+import resume, { ResumeData, Link } from 'resume-lite';
 
 import { TemplateName } from '../src/index';
 

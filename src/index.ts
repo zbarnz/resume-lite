@@ -51,6 +51,7 @@ export {
     VolunteerWork,
     Language,
     ResumeData,
+    Link,
 } from './resumeTypes';
 
 export default {
