@@ -42,7 +42,16 @@ export function generate(templateName: TemplateName, resumeData: ResumeData): st
     return templateFunction(resumeData);
 }
 
-export * from './resumeTypes';
+export {
+    PersonalInfo,
+    WorkExperience,
+    Education,
+    Project,
+    Certification,
+    VolunteerWork,
+    Language,
+    ResumeData,
+} from './resumeTypes';
 
 export default {
     generate,
