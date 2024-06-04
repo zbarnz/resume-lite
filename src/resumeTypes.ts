@@ -4,6 +4,7 @@ export interface PersonalInfo {
   phone?: string
   address?: string
   summary?: string
+  title?: string
   links?: {
     name: string
     url: string
@@ -50,13 +51,18 @@ export interface Language {
   proficiency: string
 }
 
+export interface Skill {
+  type: string
+  list: string[]
+}
+
 //Main Resume Data:
 
 export interface ResumeData {
   personalInfo: PersonalInfo
   workExperience?: WorkExperience[]
   education?: Education[]
-  skills?: string[]
+  skills?: (Skill[] | string[]);
   projects?: Project[]
   certifications?: Certification[]
   languages?: Language[]

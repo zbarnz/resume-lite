@@ -25,8 +25,8 @@ export async function toPDF(template: TemplateName, testData: ResumeData, pages?
         const height = await page.evaluate(() => document.documentElement.scrollHeight);
 
         const buffer = await page.pdf({
-            width: '8.27in', // A4 width in inches
-            height,
+            width: '8.5in', // A4 width in inches
+            height: '11in',
             printBackground: true,
         });
 

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simple Resume Printable Page</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .page-container {
+                padding: 0 0.25in;
+                background-color: white;
+                box-sizing: border-box;
+                margin-bottom: 1in;
+            }
+
+            p {
+                font-size: 11pt;
+                line-height: 1.5;
+                margin: 0;
+            }
+
+            ul {
+                line-height: 1.5;
+                font-size: 11pt;
+                margin: 0;
+            }
+
+            .name {
+                font-size: 16pt;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+            .section-title {
+                font-size: 14pt;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .section-subtitle {
+                font-weight: bold;
+                display: flex;
+                flex-direction: row;
+                margin: 0;
+            }
+
+            .line {
+                border-bottom: 1px darkgrey solid;
+                margin: 5pt 0 5pt;
+            }
+
+            .center-text {
+                text-align: center;
+            }
+
+            .letter-space {
+                margin-left: 3pt;
+                margin-right: 3pt;
+            }
+
+            .row {
+                display: table;
+            }
+
+            .row-element {
+                display: inline-block;
+                margin-right: 3pt;
+            }
+
+            .education-centered-title {
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .eductation-section {
+                display: table;
+            }
+
+            .education {
+                vertical-align: top;
+                display: inline-block;
+                width: 50%;
+                margin-bottom: 5pt;
+            }
+
+            /* Styles for printing */
+            @media print {
+                @page {
+                    margin: 0.75cm 0;
+                }
+
+                body {
+                    display: block;
+                    /* background-color: white; */
+                }
+
+                .page-container {
+                    box-shadow: none;
+                    margin: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .nobreak {
+                    break-inside: avoid;
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-container">
+            <p class="name">Johnny Smith</p>
+            <p class="contact-info">
+                johnnysmith@gmail.com | 123-123-1234 | Frisco, CO | linkedin.com/in/JohnnySmith |
+                https://github.com/John
+            </p>
+            <p class="section-title">Software Developer</p>
+            <p class="line"></p>
+            <p class="section-title">Skills</p>
+            <p class="skills center-text">
+                JavaScript, TypeScript, HTML/CSS, Bootstrap, Java, Python, C++ React Native,
+                React.js, Next.js, Redux, DynamoDB, MongoDB, Firebase, GraphQL, Mocha testing
+                framework, Jest, Docker, Bash, Git, GitHub, Kanban, Fastlane
+            </p>
+            <p class="line"></p>
+            <p class="section-title">Work Experience</p>
+            <div class="experience-section nobreak">
+                <div class="section-subtitle">
+                    <p class="experience-job-position">Lead Software Engineer</p>
+                    <p class="letter-space">-</p>
+                    <p class="experience-company-name">Global Tech Solutions</p>
+                    <p class="letter-space"></p>
+                    <p class="experience-dates">(April 2018 - Present)</p>
+                </div>
+                <ul>
+                    <li class="experience-point">
+                        Led a team of 10 developers in designing, developing, and maintaining
+                        enterprise-level applications
+                    </li>
+                    <li class="experience-point">
+                        Implementing agile methodologies to improve project delivery times and team
+                        productivity
+                    </li>
+                    <li class="experience-point">
+                        Collaborating with stakeholders to define project requirements and
+                        deliverables
+                    </li>
+                    <li class="experience-point">
+                        Mentoring junior developers and conducting code reviews to ensure coding
+                        standards and best practices
+                    </li>
+                </ul>
+            </div>
+            <div class="experience-section nobreak">
+                <div class="section-subtitle">
+                    <p class="experience-job-position">Senior Software Engineer</p>
+                    <p class="letter-space">-</p>
+                    <p class="experience-company-name">Innovative Apps LLC</p>
+                    <p class="letter-space"></p>
+                    <p class="experience-dates">(May 2014 - March 2018)</p>
+                </div>
+                <ul>
+                    <li class="experience-point">
+                        Developed and maintained mobile applications using React Native and Flutter
+                    </li>
+                    <li class="experience-point">
+                        Implemented RESTful APIs with Node.js and Express
+                    </li>
+                    <li class="experience-point">
+                        Worked closely with UX/UI designers to create intuitive and user-friendly
+                        interfaces
+                    </li>
+                    <li class="experience-point">
+                        Optimized application performance and resolved complex technical issues
+                    </li>
+                </ul>
+            </div>
+            <div class="experience-section nobreak">
+                <div class="section-subtitle">
+                    <p class="experience-job-position">Software Engineer</p>
+                    <p class="letter-space">-</p>
+                    <p class="experience-company-name">Tech Innovators Inc</p>
+                    <p class="letter-space"></p>
+                    <p class="experience-dates">(September 2010 - May 2014)</p>
+                </div>
+                <ul>
+                    <li class="experience-point">
+                        Developed web applications using JavaScript, HTML, and CSS
+                    </li>
+                    <li class="experience-point">
+                        Integrated third-party APIs to enhance application functionality
+                    </li>
+                    <li class="experience-point">
+                        Collaborated with cross-functional teams to ensure seamless integration of
+                        new features
+                    </li>
+                    <li class="experience-point">
+                        Participated in code reviews and contributed to the development of coding
+                        standards
+                    </li>
+                </ul>
+            </div>
+            <div class="project-section nobreak">
+                <p class="line"></p>
+                <p class="section-title">Projects</p>
+                <div class="section-subtitle">
+                    <p class="project-name">E-commerce Platform</p>
+                </div>
+                <ul>
+                    <li class="experience-point">
+                        Led the front-end development using React and Redux.
+                    </li>
+                    <li class="experience-point">
+                        Implemented the back-end API with Node.js and Express
+                    </li>
+                    <li class="experience-point">
+                        Designed and managed the database schema using MongoDB
+                    </li>
+                    <li class="experience-point">
+                        Deployed the application on AWS using Docker and Kubernetes
+                    </li>
+                    <div class="row">
+                        <a class="row-element" href="github.com/theprojectlink">
+                            http://www.myportfolio.com/ecommerceproject
+                        </a>
+                        <a class="row-element" href="github.com/theprojectlink">
+                            http://www.github.com/ecommerceproject
+                        </a>
+                    </div>
+                </ul>
+            </div>
+            <div class="project-section nobreak">
+                <div class="section-subtitle">
+                    <p class="project-name">Project Management Tool</p>
+                    <p class="letter-space"></p>
+                </div>
+                <ul>
+                    <li class="experience-point">
+                        Designed the user interface with Angular and Material Design
+                    </li>
+                    <li class="experience-point">
+                        Developed the server-side logic with Spring Boot and Java
+                    </li>
+                    <li class="experience-point">
+                        Integrated real-time collaboration features using WebSockets
+                    </li>
+                    <li class="experience-point">
+                        Implemented user authentication and authorization with OAuth2
+                    </li>
+                    <div class="row">
+                        <a class="row-element" href="github.com/theprojectlink">
+                            http://www.myportfolio.com/projectmanagementtool
+                        </a>
+                        <a class="row-element" href="github.com/theprojectlink">
+                            http://www.github.com/projectmanagementtool
+                        </a>
+                    </div>
+                </ul>
+            </div>
+            <div class="nobreak">
+                <p class="line"></p>
+                <p class="section-title">Education</p>
+
+                <div class="eductation-section row">
+                    <div class="education">
+                        <p class="education-centered-title">Metropolis University</p>
+                        <ul>
+                            <li>Bachelor of Science in Computer Science 2014</li>
+                            <li>College of Engineering and Applied Science</li>
+                            <li>
+                                Parellel Computing, Web App Development, Principles of Programming,
+                                Algorithms
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="education">
+                        <p class="education-centered-title">Certifications</p>
+                        <ul>
+                            <li>Certified Scrum Master: 2016</li>
+                            <li>AWS Certified Solutions Architect: 2017</li>
+                            <li>Google Cloud Professional Data Engineer: 2018</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

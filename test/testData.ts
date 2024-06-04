@@ -8,6 +8,7 @@ export const testData: ResumeData = {
         address: '456 Elm Street, Metropolis, USA',
         summary:
             'Seasoned software engineer with over 10 years of experience in full-stack development, project management, and team leadership. Proven track record of delivering high-quality software solutions on time and within budget.',
+        title: "Software Developer",
         links: [
             { name: 'LinkedIn', url: 'https://linkedin.com/in/janesmith' },
             { name: 'GitHub', url: 'https://github.com/janesmith' },
