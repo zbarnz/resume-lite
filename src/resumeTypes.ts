@@ -10,6 +10,7 @@ export interface PersonalInfo {
 export interface Link {
     name: string;
     url: string;
+    hideLink?: boolean;
 }
 
 export interface WorkExperience {
@@ -37,7 +38,7 @@ export interface Project {
 
 export interface Certification {
     name: string;
-    dateAquired: string;
+    dateAquired?: string;
 }
 
 export interface VolunteerWork {
@@ -52,6 +53,12 @@ export interface Language {
     proficiency: string;
 }
 
+export interface Accolade {
+    name: string;
+    description?: string;
+    dateAquired?: string;
+}
+
 //Main Resume Data:
 
 export interface ResumeData {
@@ -63,4 +70,5 @@ export interface ResumeData {
     certifications?: Certification[];
     languages?: Language[];
     volunteerWork?: VolunteerWork[];
+    accolades?: Accolade[];
 }
