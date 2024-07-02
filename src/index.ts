@@ -1,8 +1,8 @@
 import { ResumeData } from './resumeTypes';
 
 //template functions:
-import { stack } from './templates/stack';
 import { edge } from './templates/edge';
+import { stack } from './templates/stack';
 
 // Define an enumeration or constant for available templates
 export const AvailableTemplates = {
@@ -43,15 +43,16 @@ export function generate(templateName: TemplateName, resumeData: ResumeData): st
 }
 
 export {
-    PersonalInfo,
-    WorkExperience,
-    Education,
-    Project,
+    Accolade,
     Certification,
-    VolunteerWork,
+    Education,
     Language,
-    ResumeData,
     Link,
+    PersonalInfo,
+    Project,
+    ResumeData,
+    VolunteerWork,
+    WorkExperience,
 } from './resumeTypes';
 
 export default {
