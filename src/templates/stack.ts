@@ -23,6 +23,7 @@ export function stack(resumeData: ResumeData): string {
                     ${resumeData.projects?.length ? projectsHTML(resumeData) : ''}
                     ${resumeData.education?.length ? educationHTML(resumeData) : ''}
                     ${resumeData.certifications?.length ? certificationsHTML(resumeData) : ''}
+                    ${resumeData.accolades?.length ? accoladesHTML(resumeData) : ''}
                     ${resumeData.languages?.length ? languagesHTML(resumeData) : ''}
                     ${resumeData.volunteerWork?.length ? volunteerWorkHTML(resumeData) : ''}
                 </div>
@@ -157,7 +158,7 @@ function educationHTML(resumeData: ResumeData): string {
         .join('');
 
     return `
-    <h2 style="margin-top: 0; margin-bottom: .5em; padding-bottom: 0; border-bottom: 1px rgba(0, 0, 0, 0.24) solid;">Education</h2>
+    <h3 style="margin-top: 0; margin-bottom: .5em; padding-bottom: 0; border-bottom: 1px rgba(0, 0, 0, 0.24) solid;">Education</h3>
     <ul style="margin: 0.2em;">
         ${education}
     </ul>`;
@@ -178,8 +179,6 @@ function certificationsHTML(resumeData: ResumeData): string {
 }
 
 function volunteerWorkHTML(resumeData: ResumeData): string {
-    const hasDescriptions = resumeData.volunteerWork?.some((volunteer) => volunteer.description);
-
     const volunteerWorkHTML = resumeData.volunteerWork
         ?.map((volunteer) => {
             return `
@@ -196,8 +195,26 @@ function volunteerWorkHTML(resumeData: ResumeData): string {
         .join('');
 
     return `
-    <h2 style="margin-top: 0; margin-bottom: .3em; padding-bottom: 0; border-bottom: 1px rgba(0, 0, 0, 0.24) solid;">
+    <h3 style="margin-top: 0; margin-bottom: .3em; padding-bottom: 0; border-bottom: 1px rgba(0, 0, 0, 0.24) solid;">
       Volunteer Work
-    </h2>
+    </h3>
     ${volunteerWorkHTML}`;
+}
+
+function accoladesHTML(resumeData: ResumeData): string {
+    const accolades = resumeData.accolades
+        ?.map((accolade) => {
+            return `
+      <li>
+        <b>${accolade.name}${accolade.dateAquired ? ` (${accolade.dateAquired})` : ''}</b>${accolade.description ? `: ${accolade.description}` : ''}
+      </li>
+    `;
+        })
+        .join('');
+
+    return `
+    <h3 style="margin-top: 0; margin-bottom: .5em; padding-bottom: 0; border-bottom: 1px rgba(0, 0, 0, 0.24) solid;">Accolades</h3>
+    <ul style="margin: 0.2em;">
+        ${accolades}
+    </ul>`;
 }
