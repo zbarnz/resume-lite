@@ -56,6 +56,8 @@ export function edge(resumeData: ResumeData): string {
                     <div class="side-details">
                         ${certificationsHTML(resumeData)}
 
+                        ${accoladesHTML(resumeData)}
+
                         ${volunteerHTML(resumeData)}
 
                         ${languagesHTML(resumeData)}
@@ -167,13 +169,17 @@ function stylesCSS() {
         }
         .side-details .section div {
             font-size: small;
+        }            
+        .side-details .section h3 {
+            font-size: medium;
         }
         .projects .project,
         .experience .job,
         .education .school,
         .certifications .certification,
         .volunteer .volunteer-work,
-        .languages .language {
+        .languages .language,
+        .accolades .accolade {
             padding: 20px;
             background-color: #eff4fd;
             border-radius: 10px;
@@ -185,7 +191,8 @@ function stylesCSS() {
         .education .school p,
         .certifications .certification p,
         .volunteer .volunteer-work p,
-        .languages .language p {
+        .languages .language p,
+        .accolades .accolade p {
             margin: 0;
         }
         .language {
@@ -248,24 +255,26 @@ function projectsHTML(resumeData: ResumeData) {
 }
 
 function educationHTML(resumeData: ResumeData) {
-    return `<div class="education section">
-                            <h2>Education</h2>
-                            <div id="education">
-                                ${
-                                    resumeData.education
-                                        ?.map(
-                                            (education) => `
+    return `
+        <div class="education section">
+            <h2>Education</h2>
+            <div id="education">
+                ${
+                    resumeData.education
+                        ?.map(
+                            (education) => `
                                 <div class="school">
                                     <h3>${education.institution}</h3>
                                     <p><strong>Degree:</strong> ${education.degree}</p>
                                     <p><strong>Dates:</strong> ${education.startDate ?? ''} - ${education.endDate}</p>
                                 </div>
                                 `
-                                        )
-                                        .join('') ?? ''
-                                }
-                            </div>
-                        </div>`;
+                        )
+                        .join('') ?? ''
+                }
+            </div>
+        </div>
+    `;
 }
 
 function certificationsHTML(resumeData: ResumeData) {
@@ -324,6 +333,29 @@ function languagesHTML(resumeData: ResumeData) {
                             (language) => `
                                 <div class="language">
                                     <p><strong>${language.name}:</strong> ${language.proficiency}</p>
+                                </div>
+                                `
+                        )
+                        .join('') ?? ''
+                }
+            </div>
+        </div>
+    `;
+}
+
+function accoladesHTML(resumeData: ResumeData) {
+    return `
+        <div class="accolades section">
+            <h2>Accolades</h2>
+            <div id="accolades">
+                ${
+                    resumeData.accolades
+                        ?.map(
+                            (accolade) => `
+                                <div class="accolade">
+                                    <h3>${accolade.name}</h3>
+                                    <p>${accolade.description ?? ''}</p>
+                                    <p>${accolade.dateAquired ? `<strong>Date Acquired:</strong> ${accolade.dateAquired}` : ''}</p>
                                 </div>
                                 `
                         )

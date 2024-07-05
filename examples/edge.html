@@ -1,16 +1,18 @@
-<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Jane Smith's Resume</title>
         <style>
+            html {
+                print-color-adjust: exact;
+            }
             body {
                 font-family: 'Roboto', sans-serif;
                 font-size: small;
                 margin: 0;
                 padding: 0;
-                background-color: #fff;
+                background-color: #f0f2f5;
                 color: #333;
             }
             .container {
@@ -101,13 +103,17 @@
             .side-details .section div {
                 font-size: small;
             }
+            .side-details .section h3 {
+                font-size: medium
+            }
             .projects .project,
             .experience .job,
             .education .school,
             .certifications .certification,
             .volunteer .volunteer-work,
-            .languages .language {
-                padding: 10px 20px;
+            .languages .language,
+            .accolades .accolade {
+                padding: 20px;
                 background-color: #eff4fd;
                 border-radius: 10px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -118,7 +124,8 @@
             .education .school p,
             .certifications .certification p,
             .volunteer .volunteer-work p,
-            .languages .language p {
+            .languages .language p,
+            .accolades .accolade p {
                 margin: 0;
             }
             .language {
@@ -127,7 +134,7 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        <div id="templateContainer" class="container">
             <div class="header">
                 <div class="name-links">
                     <h1 id="name">Jane Smith</h1>
@@ -351,6 +358,28 @@
                             <div class="certification">
                                 <h3>Google Cloud Professional Data Engineer</h3>
                                 <p>Date Acquired: 2018-08-01</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accolades section">
+                        <h2>Accolades</h2>
+                        <div id="accolades">
+                            <div class="accolade">
+                                <h3>Appeared on CNET</h3>
+                                <p>
+                                    Appeared on CNET for taking part in the "Code for Good" workshop
+                                </p>
+                                <p></p>
+                            </div>
+
+                            <div class="accolade">
+                                <h3>Presidential Award of Excellence</h3>
+                                <p></p>
+                                <p>
+                                    <strong>Date Acquired:</strong>
+                                    April 1st 2016
+                                </p>
                             </div>
                         </div>
                     </div>
