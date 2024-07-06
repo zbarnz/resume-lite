@@ -153,4 +153,14 @@ export const testData: ResumeData = {
                 'Contributed to various open-source projects, focusing on bug fixes and feature enhancements.',
         },
     ],
+    accolades: [
+        {
+            name: 'Appeared on CNET',
+            description: 'Appeared on CNET for taking part in the "Code for Good" workshop',
+        },
+        {
+            name: 'Presidential Award of Excellence',
+            dateAquired: 'April 1st 2016',
+        },
+    ],
 };

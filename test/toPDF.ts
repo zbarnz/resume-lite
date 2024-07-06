@@ -1,7 +1,7 @@
-import puppeteer from 'puppeteer';
 import fs from 'fs';
+import puppeteer from 'puppeteer';
 
-import resume, { ResumeData, Link } from 'resume-lite';
+import resume, { ResumeData } from 'resume-lite';
 
 import { TemplateName } from '../src/index';
 
@@ -9,9 +9,9 @@ import { TemplateName } from '../src/index';
 
 export async function toPDF(template: TemplateName, testData: ResumeData, pages?: number) {
     //test generate call
-    const html = resume.generate(template, testData);
-
     try {
+        const html = resume.generate(template, testData);
+
         const browser = await puppeteer.launch({
             headless: false,
             args: ['--no-sandbox'],
@@ -36,8 +36,8 @@ export async function toPDF(template: TemplateName, testData: ResumeData, pages?
         fs.writeFileSync(`${outputDir}/${template}_test.pdf`, buffer);
 
         // Close all the pages and disconnect from the browser
-        await page.close();
-        await browser.close();
+        //await page.close();
+        //await browser.close();
     } catch (error) {
         throw new Error(error as any);
     }
