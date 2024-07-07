@@ -105,13 +105,12 @@ function projectsHTML(resumeData: ResumeData): string {
     const projectsHTML = resumeData.projects
         ?.map((project) => {
             const links =
-                project.sourceCodeLink ||
-                (project.website
+                project.sourceCodeLink || project.website
                     ? `<li>
-          ${project.sourceCodeLink ? `<li>GitHub: <a href="${project.sourceCodeLink}" target="_blank">${project.sourceCodeLink}</a> | ` : ''}
+          ${project.sourceCodeLink ? `GitHub: <a href="${project.sourceCodeLink}" target="_blank">${project.sourceCodeLink}</a> | ` : ''}
           ${project.website ? `Live Site: <a href="${project.website}" target="_blank">${project.website}</a>` : ''}
           </li>`
-                    : '');
+                    : '';
 
             return `
       <p style="margin: 0;">
