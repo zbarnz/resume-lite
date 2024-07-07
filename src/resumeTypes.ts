@@ -32,8 +32,8 @@ export interface Project {
     title: string;
     description: string;
     responsibilities: string[];
-    website?: string;
-    sourceCodeLink?: string;
+    website?: Link;
+    sourceCode?: Link;
 }
 
 export interface Certification {

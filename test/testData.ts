@@ -95,8 +95,11 @@ export const testData: ResumeData = {
                 'Designed and managed the database schema using MongoDB.',
                 'Deployed the application on AWS using Docker and Kubernetes.',
             ],
-            website: 'https://ecommerceplatform.com',
-            sourceCodeLink: 'https://github.com/janesmith/ecommerce-platform',
+            website: { name: 'Website', url: 'https://ecommerceplatform.com' },
+            sourceCode: {
+                name: 'Source',
+                url: 'https://github.com/janesmith/ecommerce-platform',
+            },
         },
         {
             title: 'Project Management Tool',
@@ -107,8 +110,11 @@ export const testData: ResumeData = {
                 'Integrated real-time collaboration features using WebSockets.',
                 'Implemented user authentication and authorization with OAuth2.',
             ],
-            website: 'https://projectmanagementtool.com',
-            sourceCodeLink: 'https://github.com/janesmith/project-management-tool',
+            website: { name: 'Website', url: 'https://projectmanagementtool.com' },
+            sourceCode: {
+                name: 'Source',
+                url: 'https://github.com/janesmith/project-management-tool',
+            },
         },
     ],
     certifications: [

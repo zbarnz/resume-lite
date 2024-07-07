@@ -39,7 +39,7 @@ export function edge(resumeData: ResumeData): string {
                     <div class="links">
                         <h3>Links</h3>
                         <ul id="links">
-                            ${resumeData.personalInfo.links?.map((link) => `<li><a href="${link.url}">${link.name}</a></li>`).join('') ?? ''}
+                            ${resumeData.personalInfo.links?.map((link) => `<li><a href="${link.url}">${link.hideLink ? link.name : link.url}</a></li>`).join('') ?? ''}
                         </ul>
                     </div>
                 </div>
@@ -147,6 +147,7 @@ function stylesCSS() {
         }
         .links ul {
             margin: 5px 0;
+            padding-left: 2em;
         }
         .links h3 {
             margin: 0;
@@ -242,8 +243,8 @@ function projectsHTML(resumeData: ResumeData) {
                                     <ul>
                                         ${project.responsibilities.map((responsibility) => `<li>${responsibility}</li>`).join('')}
                                     </ul>
-                                    ${project.website ? `<p><a href="${project.website}">Website</a></p>` : ''}
-                                    ${project.sourceCodeLink ? `<p><a href="${project.sourceCodeLink}">Source Code</a></p>` : ''}
+                                    ${project.website ? `<p><a href="${project.website.url}">${project.website.hideLink ? project.website.name : project.website.url}</a></p>` : ''}
+                                    ${project.sourceCode ? `<p><a href="${project.sourceCode.url}">${project.sourceCode.hideLink ? project.sourceCode.name : project.sourceCode.url}</a></p>` : ''}
                                 </div>
                                 `
                         )

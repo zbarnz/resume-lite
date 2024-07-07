@@ -38,7 +38,7 @@ function headerHTML(resumeData: ResumeData): string {
       <td valign="top" style="padding-left: 2em;">
         <strong>Websites:</strong>
         <br />
-        ${resumeData.personalInfo.links.map((link) => `<a href="${link.url}" target="_blank">${link.url}</a><br />`).join('')}
+        ${resumeData.personalInfo.links.map((link) => `<a href="${link.url}" target="_blank">${link.hideLink ? link.name : link.url}</a><br />`).join('')}
       </td>
     `
         : '';
@@ -105,10 +105,10 @@ function projectsHTML(resumeData: ResumeData): string {
     const projectsHTML = resumeData.projects
         ?.map((project) => {
             const links =
-                project.sourceCodeLink || project.website
+                project.sourceCode || project.website
                     ? `<li>
-          ${project.sourceCodeLink ? `GitHub: <a href="${project.sourceCodeLink}" target="_blank">${project.sourceCodeLink}</a> | ` : ''}
-          ${project.website ? `Live Site: <a href="${project.website}" target="_blank">${project.website}</a>` : ''}
+          ${project.sourceCode ? `GitHub: <a href="${project.sourceCode.url}" target="_blank">${project.sourceCode.hideLink ? project.sourceCode.name : project.sourceCode.url}</a> | ` : ''}
+          ${project.website ? `Live Site: <a href="${project.website.url}" target="_blank">${project.website.hideLink ? project.website.name : project.website.url}</a>` : ''}
           </li>`
                     : '';
 

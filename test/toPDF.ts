@@ -36,8 +36,8 @@ export async function toPDF(template: TemplateName, testData: ResumeData, pages?
         fs.writeFileSync(`${outputDir}/${template}_test.pdf`, buffer);
 
         // Close all the pages and disconnect from the browser
-        await page.close();
-        await browser.close();
+        //await page.close();
+        //await browser.close();
     } catch (error) {
         throw new Error(error as any);
     }
