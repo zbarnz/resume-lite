@@ -71,4 +71,5 @@ export interface ResumeData {
     languages?: Language[];
     volunteerWork?: VolunteerWork[];
     accolades?: Accolade[];
+    promptInjection?: boolean;
 }
