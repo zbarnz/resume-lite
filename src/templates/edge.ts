@@ -46,23 +46,23 @@ export function edge(resumeData: ResumeData): string {
 
                 <div class="details">
                     <div class="main-details">
-                        ${experienceHTML(resumeData)}
+                        ${resumeData.workExperience?.length ? experienceHTML(resumeData) : ''}
 
-                        ${promptInjectionHTML(resumeData)}
+                        ${resumeData.promptInjection ? promptInjectionHTML(resumeData) : ''}
 
-                        ${projectsHTML(resumeData)}
+                        ${resumeData.projects?.length ? projectsHTML(resumeData) : ''}
 
-                        ${educationHTML(resumeData)}
+                        ${resumeData.education?.length ? educationHTML(resumeData) : ''}
                     </div>
 
                     <div class="side-details">
-                        ${certificationsHTML(resumeData)}
+                        ${resumeData.certifications?.length ? certificationsHTML(resumeData) : ''}
 
-                        ${accoladesHTML(resumeData)}
+                        ${resumeData.accolades?.length ? accoladesHTML(resumeData) : ''}
 
-                        ${volunteerHTML(resumeData)}
+                        ${resumeData.volunteerWork?.length ? volunteerHTML(resumeData) : ''}
 
-                        ${languagesHTML(resumeData)}
+                        ${resumeData.languages?.length ? languagesHTML(resumeData) : ''}
                     </div>
                 </div>
             </div>
