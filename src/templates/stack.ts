@@ -150,8 +150,8 @@ function educationHTML(resumeData: ResumeData): string {
         ?.map((education) => {
             return `
       <li>
-        <b>${education.degree}:&nbsp</b>
-        ${education.institution}&nbsp(${education.startDate ? education.startDate + '&nbspto&nbsp' : ''}${education.endDate})
+        <b>${education.degree} ${education.gpa ? `<i><strong>(GPA: ${education.gpa})</strong></i>` : ''}:&nbsp</b>
+        ${education.institution}${education.startDate || education.endDate ? `&nbsp;(${education.startDate ? education.startDate + '&nbspto&nbsp;' : ''}${education.endDate ?? ''})` : ''}
       </li>
     `;
         })

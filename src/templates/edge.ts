@@ -275,7 +275,8 @@ function educationHTML(resumeData: ResumeData) {
                                 <div class="school">
                                     <h3>${education.institution}</h3>
                                     <p><strong>Degree:</strong> ${education.degree}</p>
-                                    <p><strong>Dates:</strong> ${education.startDate ?? ''} - ${education.endDate}</p>
+                                    ${education.startDate || education.endDate ? `<p><strong>${education.startDate && education.endDate ? 'Dates:' : 'Date:'}</strong> ${education.startDate || ''}${education.endDate ? (education.startDate ? ' - ' + education.endDate : education.endDate) : ''}</p>` : ''}
+                                    ${education.gpa ? `<p><strong>GPA:</strong> ${education.gpa}</p>` : ''}
                                 </div>
                                 `
                         )

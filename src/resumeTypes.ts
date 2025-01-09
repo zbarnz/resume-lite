@@ -24,8 +24,9 @@ export interface WorkExperience {
 export interface Education {
     institution: string;
     degree: string;
+    gpa?: string;
     startDate?: string;
-    endDate: string;
+    endDate?: string;
 }
 
 export interface Project {

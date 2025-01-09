@@ -61,6 +61,7 @@ export const testData: ResumeData = {
         {
             institution: 'Metropolis University',
             degree: 'Bachelor of Science in Computer Science',
+            gpa: '4.3',
             startDate: '2004-09-01',
             endDate: '2008-06-30',
         },
