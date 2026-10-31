@@ -170,5 +170,4 @@ export const testData: ResumeData = {
             dateAquired: 'April 1st 2016',
         },
     ],
-    promptInjection: true,
 };

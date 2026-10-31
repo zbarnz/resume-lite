@@ -72,5 +72,6 @@ export interface ResumeData {
     languages?: Language[];
     volunteerWork?: VolunteerWork[];
     accolades?: Accolade[];
+    /** @deprecated No longer has any effect and will be removed in a future major version. */
     promptInjection?: boolean;
 }
