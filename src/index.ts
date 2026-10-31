@@ -1,13 +1,17 @@
 import { ResumeData } from './resumeTypes';
 
 //template functions:
+import { classic } from './templates/classic';
 import { edge } from './templates/edge';
+import { slate } from './templates/slate';
 import { stack } from './templates/stack';
 
 // Define an enumeration or constant for available templates
 export const AvailableTemplates = {
     STACK: 'stack',
     EDGE: 'edge',
+    CLASSIC: 'classic',
+    SLATE: 'slate',
 } as const;
 
 export type TemplateName = (typeof AvailableTemplates)[keyof typeof AvailableTemplates];
@@ -17,6 +21,8 @@ export type TemplateFunction = (resumeData: ResumeData) => string;
 const templateFunctions: Record<TemplateName, TemplateFunction> = {
     stack: stack,
     edge: edge,
+    classic: classic,
+    slate: slate,
 };
 
 /**
@@ -26,6 +32,8 @@ const templateFunctions: Record<TemplateName, TemplateFunction> = {
  *
  *    - stack
  *    - edge
+ *    - classic
+ *    - slate
  *
  * @param {TemplateName} templateName - The name of the template to use.
  * @param {ResumeData} resumeData - The resume data to be used in the template.
