@@ -15,11 +15,14 @@
   <tr>
     <th>Stack</th>
     <th>Edge</th>
+    <th>Classic</th>
+    <th>Slate</th>
   </tr>
   <tr>
-    <td><img src="https://i.imgur.com/Fx56vR4.jpg" width="200px" /></td>
-    <td><img src="https://i.imgur.com/gmkQ3lC.jpeg" width="200px"  /></td>
-    </td>
+    <td><img src="https://raw.githubusercontent.com/zbarnz/resume-lite/master/images/stack.png" width="200px" /></td>
+    <td><img src="https://raw.githubusercontent.com/zbarnz/resume-lite/master/images/edge.png" width="200px" /></td>
+    <td><img src="https://raw.githubusercontent.com/zbarnz/resume-lite/master/images/classic.png" width="200px" /></td>
+    <td><img src="https://raw.githubusercontent.com/zbarnz/resume-lite/master/images/slate.png" width="200px" /></td>
   </tr>
 </table>
 
